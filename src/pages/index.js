@@ -1,21 +1,54 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
+import 'bootstrap/dist/css/bootstrap.css';
 import Image from "../components/image"
-import SEO from "../components/seo"
+import Hamburger from "../components/hamburger"
+import Masonry from "../components/masonry"
+import './grid.css'
+import axios from 'axios';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+class IndexPage extends React.Component {
+  state = {
+  data: [],
+  fulldata: [],
+  currentround: ""
+}
+
+onUpdateRound = (i) => {
+  this.setState ({currentround: i})
+  var rounds =  this.state.fulldata.filter(function(round) {
+  return round.round == i;
+});
+  this.setState({data: rounds});
+};
+
+componentDidMount = async () => {
+  const response = await axios("https://www.flonxchess.nl/apicamping.php");
+    this.setState({ fulldata: response.data,
+                    data: response.data })
+    this.onUpdateRound(1)
+};
+render() {
+  return (
+  <>
+  <Hamburger onSelectRound={this.onUpdateRound} />
+
+  <div className="grid-container">
+    <div className="grid-item">
+      <div className="wrapper">
+        <h1>Campingschaak Uitslagen & Partijen</h1>
+
+      </div>
+      <div className="hero"><Image /></div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+    <div className="grid-item grid-container-b">
+      <div className="grid-item-a"> <h2 className="text-center pb-2">Ronde {this.state.currentround}</h2></div>
+      <Masonry data={this.state.data}/>
+    </div>
+
+
+  </div>
+  </>
+  )
+}}
 
 export default IndexPage

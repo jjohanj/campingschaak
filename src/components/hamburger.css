@@ -1,0 +1,134 @@
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 20px;
+  top: 36px;
+
+}
+@media (min-width: 768px) {
+  .bm-burger-button {
+    left: 44%;
+  }
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #b8b7ad;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: gray;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  position: absolute;
+  width: 40px!important;
+  height: 36px!important;
+  right: 5%!important;
+  top: 50%!important;
+
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #b8b7ad;
+  height: 25px!important;
+  width: 5px!important;
+  top: -10px;
+  right: 0;
+}
+.bm-cross:last-child {
+  top: 5px!important;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100%!important;
+}
+@media (min-width: 768px) {
+  .bm-menu-wrap {
+      width: 50%!important;
+  }
+}
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  opacity: 0.95;
+  overflow: hidden!important;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+.bm-item-list ul {
+  outline: none;
+  text-align: left;
+}
+
+@media (min-width: 500px) {
+  .bm-item-list ul {
+    text-align: center;
+    margin: 0 40px;
+  }
+}
+
+
+/* Wrapper for item list */
+.bm-item-list a,
+.bm-item-list li{
+  color: #b8b7ad!important;
+  padding: 0.6rem;
+  font-size: 1.3em;
+  outline: none!important;
+  cursor: pointer;
+  }
+
+  .bm-item-list a{
+    font-size: 1em;
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .bm-item-list a:hover,
+  .bm-item-list li:hover {
+      background: gray;
+  }
+.bm-item-list {
+  margin-top: 1.5rem;
+  text-align: center;
+  overflow-y: hidden;
+  margin-bottom: -3rem;
+
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 500px) {
+  .bm-item-list a{
+    text-align: center
+  }
+}
+@media (min-width: 768px) {
+  .bm-overlay {
+    right: 50%;
+  }
+}
