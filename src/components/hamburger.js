@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import Menu from 'react-burger-menu/lib/menus/slide'
 
 import "./hamburger.css"
